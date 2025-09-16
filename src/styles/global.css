@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414; /* primary */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBAF7B; /* gold */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2E86AB; /* blueAccent */
+}
+
+
+/* Text color wipe effect (white to black from left to right) */
+.text-wipe {
+  background: linear-gradient(to right, white 50%, black 50%);
+  background-size: 200% 100%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.5s ease-in-out;
+}
+
+.text-wipe:hover {
+  background-position: -100% 0;
+}
+/* Skewed Button Animation Effect */
+.btn-primary-yellow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 236px;
+  height: 54px;
+  background-color: #CBAF7B; /* Gold */
+  color: #000; /* Black text */
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color .5s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Blue skewed overlay that animates in */
+.btn-primary-yellow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 0;
+  height: 120%;
+  background-color: #2E86AB; /* Blue accent */
+  transform: skewX(-8deg);
+  transition: all .9s;
+  z-index: 0;
+}
+
+/* On hover: overlay expands */
+.btn-primary-yellow:hover::after {
+  width: 110%;
+}
+
+/* Ensure text stays above overlay */
+.btn-primary-yellow span {
+  position: relative;
+  z-index: 1;
+  transition: color .5s ease;
+}
+
+.btn-primary-yellow:hover span {
+  color: white;
+}
+
+/* Disabled state for sold properties */
+.btn-primary-yellow:disabled {
+  cursor: not-allowed;
+}
+
+.btn-primary-yellow:disabled::after {
+  display: none;
+}
+
+.btn-primary-yellow:disabled span {
+  color: #666;
+}
+
+/* Special Hero CTA Button - White Border Effect */
+.btn-hero-special {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 236px;
+  height: 54px;
+  background-color: transparent;
+  color: white;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* White background fill on hover */
+.btn-hero-special:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Ensure text stays above */
+.btn-hero-special span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+/* Special Hero CTA Button - Black Border Effect */
+.btn-hero-special-black {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 236px;
+  height: 54px;
+  background-color: transparent;
+  color: black;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid black;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+/* Black background fill on hover */
+.btn-hero-special-black:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Ensure text stays above */
+.btn-hero-special-black span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}

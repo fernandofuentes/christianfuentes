@@ -1,0 +1,53 @@
+---
+---
+<section class="py-0 bg-gray-900">
+    <div class="w-full">
+        <div class="relative aspect-video bg-black overflow-hidden group cursor-pointer" id="videoContainer">
+            <!-- Video Element -->
+            <video 
+                id="aboutVideo"
+                class="w-full h-full object-cover"
+                poster="/images/christian-fuentes-thumbnail.png"
+            >  
+            <source src="/videos/christian-fuentes-real-fast.webm" type="video/webm">
+           <source src="/videos/christian-fuentes-real-fast.mp4" type="video/mp4">
+
+                <p class="text-white p-8">Your browser does not support the video tag.</p>
+            </video>
+            
+            <!-- Play Button Overlay -->
+            <div id="playButton" class="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 group-hover:bg-black/40">
+                <div class="luxury-play-button w-24 h-24 bg-white/10 backdrop-blur-sm border-2 border-gold/60 rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-500 hover:scale-110 hover:border-gold hover:bg-gold/20 hover:shadow-gold/30 group">
+                    <svg class="w-10 h-10 text-gold ml-1 transition-all duration-300 group-hover:text-white group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.getElementById('aboutVideo');
+        const playButton = document.getElementById('playButton');
+        const videoContainer = document.getElementById('videoContainer');
+        
+        if (video && playButton && videoContainer) {
+            // Play video when clicking anywhere on the container
+            videoContainer.addEventListener('click', function() {
+                if (video.paused) {
+                    video.play();
+                    playButton.style.display = 'none';
+                    video.setAttribute('controls', 'true');
+                }
+            });
+            
+            // Show play button when video ends
+            video.addEventListener('ended', function() {
+                playButton.style.display = 'flex';
+                video.removeAttribute('controls');
+            });
+        }
+    });
+</script>

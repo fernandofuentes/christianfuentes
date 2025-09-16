@@ -1,0 +1,136 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.tsx';
+import SellersHero from '../components/SellersHero.astro';
+import SellersProcess from '../components/SellersProcess.astro';
+import SellersTestimonials from '../components/SellersTestimonials.astro';
+import SellersMarketAnalysis from '../components/SellersMarketAnalysis.astro';
+import GlobalCTA from '../components/GlobalCTA.astro';
+import InstagramFeed from '../components/InstagramFeed.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Sell Your Home with Christian Fuentes - #1 Luxury Real Estate Agent | Diamond Bar, CA";
+const description = "Sell your luxury home with Christian Fuentes Group. Expert marketing, premium pricing strategies, and proven results. 500+ homes sold, $2B+ in sales across Chino Hills, CA.";
+const canonicalURL = "https://christianfuentes.com/sellers";
+const ogImage = "https://christianfuentes.com/sellers-og-image.jpg";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content="sell luxury home, Diamond Bar realtor, Chino Hills, CA real estate, Chino Hills, CA agent, RE/MAX, Christian Fuentes, luxury home marketing">
+    <meta name="author" content="Christian Fuentes">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href={canonicalURL}>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Christian Fuentes Group">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalURL}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={ogImage}>
+    <meta name="twitter:creator" content="@christianfuentes">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Christian Fuentes",
+      "image": "https://christianfuentes.com/christian-fuentes-photo.jpg",
+      "telephone": "+1-909-438-2245",
+      "email": "christian@christianfuentes.com",
+      "url": "https://christianfuentes.com/sellers",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Diamond Bar",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.0286",
+        "longitude": "-117.8103"
+      },
+      "worksFor": {
+        "@type": "RealEstateAgency",
+        "name": "RE/MAX Top Producers",
+        "url": "https://remax.com"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Diamond Bar",
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City", 
+          "name": "Beverly Hills",
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City",
+          "name": "Manhattan Beach", 
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City",
+          "name": "Malibu",
+          "addressRegion": "CA"
+        }
+      ],
+      "hasCredential": "RE/MAX Diamond Producer",
+      "knowsAbout": ["Luxury Real Estate", "Home Selling", "Property Marketing"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "127"
+      }
+    }
+    </script>
+</head>
+<body class="bg-black text-white" itemscope itemtype="https://schema.org/WebPage">
+    <header>
+        <Navigation client:load />
+    </header>
+    <main>
+        <SellersHero />
+        <SellersProcess />
+        <SellersTestimonials />
+        <SellersMarketAnalysis />
+        <GlobalCTA />
+        <InstagramFeed />
+        <Footer />
+    </main>
+</body>
+</html>

@@ -1,0 +1,494 @@
+---
+import '../../styles/global.css';
+import Navigation from '../../components/Navigation.tsx';
+import Footer from '../../components/Footer.astro';
+
+const title = "$648,500 Highland Home - Featured Property | Christian Fuentes";
+const description = "Beautiful Highland home at 2931 Seine Ave featuring 4 bedrooms, 3 bathrooms, 2,304 sq ft on 0.25 acre lot. Presented by Christian Fuentes Group.";
+const canonicalURL = "https://christianfuentes.com/property/featured-2";
+const ogImage = "https://christianfuentes.com/images/properties/featured/2/featured-2.webp";
+
+// Property images array (single source of truth)
+const propertyImages = [
+  { src: "/images/properties/featured/2/featured-2.webp", alt: "Highland Home - Main exterior view" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-1.webp", alt: "Highland Home - Front entrance" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-2.webp", alt: "Highland Home - Living room" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-3.webp", alt: "Highland Home - Kitchen" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-4.webp", alt: "Highland Home - Primary bedroom" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-5.webp", alt: "Highland Home - Primary bathroom" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-6.webp", alt: "Highland Home - Dining room" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-7.webp", alt: "Highland Home - Home office" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-8.webp", alt: "Highland Home - Pool area" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-9.webp", alt: "Highland Home - Backyard view" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-10.webp", alt: "Highland Home - Garage" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-11.webp", alt: "Highland Home - Additional view" },
+  { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-12.webp", alt: "Highland Home - Final view" }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+  <meta name="keywords" content="Highland CA, 2931 Seine Ave, luxury home Highland, Christian Fuentes listings" />
+  <meta name="author" content="Christian Fuentes" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Christian Fuentes Group" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImage} />
+  <meta name="twitter:creator" content="@christianfuentes" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Property Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateListing",
+    "name": "Highland Home",
+    "description": "Beautiful Highland home on 0.25 acre lot with modern amenities and spacious layout",
+    "price": "$648,500",
+    "priceCurrency": "USD",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2931 Seine Ave",
+      "addressLocality": "Highland",
+      "addressRegion": "CA",
+      "postalCode": "92346",
+      "addressCountry": "US"
+    },
+    "floorSize": { "@type": "QuantitativeValue", "value": "2304", "unitCode": "SQF" },
+    "numberOfBedrooms": "4",
+    "numberOfBathrooms": "3",
+    "image": "https://christianfuentes.com/images/properties/featured/2/featured-2.webp",
+    "agent": {
+      "@type": "RealEstateAgent",
+      "name": "Christian Fuentes",
+      "telephone": "+1-909-438-2245",
+      "email": "christian@christianfuentes.com"
+    }
+  }
+  </script>
+
+  <!-- Pass images to JS as global variable -->
+  <script is:inline>
+    window.propertyImages = [
+      { src: "/images/properties/featured/2/featured-2.webp", alt: "Highland Home - Main exterior view" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-1.webp", alt: "Highland Home - Front entrance" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-2.webp", alt: "Highland Home - Living room" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-3.webp", alt: "Highland Home - Kitchen" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-4.webp", alt: "Highland Home - Primary bedroom" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-5.webp", alt: "Highland Home - Primary bathroom" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-6.webp", alt: "Highland Home - Dining room" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-7.webp", alt: "Highland Home - Home office" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-8.webp", alt: "Highland Home - Pool area" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-9.webp", alt: "Highland Home - Backyard view" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-10.webp", alt: "Highland Home - Garage" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-11.webp", alt: "Highland Home - Additional view" },
+      { src: "/images/properties/featured/2/2931-seine-ave-highland-ca-92346-12.webp", alt: "Highland Home - Final view" }
+    ];
+  </script>
+</head>
+
+<body class="bg-navy-dark text-white" itemscope itemtype="https://schema.org/WebPage">
+  <header>
+    <Navigation client:load />
+  </header>
+
+  <main class="pt-32">
+
+    <!-- ======================== HERO (Section 1) ======================== -->
+    <section class="relative h-screen bg-navy overflow-hidden flex items-center justify-center" itemscope itemtype="https://schema.org/RealEstateListing">
+      <div class="relative overflow-hidden w-full h-full flex items-center">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/images/properties/featured/2/featured-2.webp"
+            alt="Highland Home - Main exterior view"
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
+        </div>
+
+        <div class="relative z-10 w-full px-6 sm:px-8 lg:px-24 text-center">
+          <div class="relative">
+            <p class="text-gold text-sm font-medium tracking-[0.3em] uppercase mb-6 font-poppins">
+              Featured Property
+            </p>
+
+            <div class="relative">
+              <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-offwhite mb-8 font-playfair leading-tight" itemprop="name">
+                Highland
+                <span class="block text-gold italic">Home</span>
+              </h1>
+
+              <!-- Flourish -->
+              <div class="flex items-center justify-center space-x-4 mb-8" aria-hidden="true">
+                <div class="w-16 h-px bg-gradient-to-r from-transparent to-gold"></div>
+                <div class="w-2 h-2 bg-gold rotate-45"></div>
+                <div class="w-8 h-px bg-gold"></div>
+                <div class="w-2 h-2 bg-gold rotate-45"></div>
+                <div class="w-16 h-px bg-gradient-to-l from-transparent to-gold"></div>
+              </div>
+            </div>
+
+            <!-- Key details -->
+            <div class="max-w-4xl mx-auto">
+              <div class="mb-8">
+                <div class="text-5xl md:text-6xl font-bold text-gold mb-4 font-playfair" itemprop="price">$648,500</div>
+                <p class="text-white/90 text-xl mb-6" itemprop="address">2931 Seine Ave, Highland, CA 92346</p>
+              </div>
+
+              <div class="flex justify-center gap-12 mb-8 text-white/80">
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-gold" itemprop="numberOfBedrooms">4</div>
+                  <div class="text-sm uppercase tracking-wider">Bedrooms</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-gold" itemprop="numberOfBathrooms">3</div>
+                  <div class="text-sm uppercase tracking-wider">Bathrooms</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-gold" itemprop="floorSize">2,304</div>
+                  <div class="text-sm uppercase tracking-wider">Sq Ft</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-gold">0.25</div>
+                  <div class="text-sm uppercase tracking-wider">Acre Lot</div>
+                </div>
+              </div>
+
+              <p class="text-white/90 text-lg leading-relaxed max-w-2xl mx-auto mb-8" itemprop="description">
+                Welcome to your fully renovated dream home in Highland! This stunning residence offers stylish living space on a generous lot.
+              </p>
+
+              <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="/consultation" class="btn-primary-yellow" aria-label="Schedule viewing for Highland home">
+                  <span>Schedule Private Viewing</span>
+                </a>
+                <a href="tel:909-438-2245" class="btn-hero-special" aria-label="Call Christian Fuentes about this property">
+                  <span>Call (909) 438-2245</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== ABOUT (Section 2 — its OWN bg) ======================== -->
+    <section class="bg-white py-20">
+      <div class="w-full">
+        <div class="max-w-4xl mx-auto px-8 sm:px-12 lg:px-16">
+            <h2 class="text-3xl font-bold text-black mb-8 font-playfair text-center">
+              About This Highland Home
+            </h2>
+
+            <div class="space-y-6 text-black leading-relaxed">
+              <p>
+                Welcome to your fully renovated dream home in Highland! This stunning 4-bedroom, 3-bath residence offers approximately 2,304 sq. ft. of stylish living space, set on a generous 10,950 sq. ft. lot. Thoughtfully remodeled from top to bottom, every detail has been designed with comfort and elegance in mind.
+              </p>
+
+              <p>
+                Step inside to discover brand-new luxury vinyl plank flooring, fresh interior paint, and beautifully updated bathrooms featuring sleek tile work and modern fixtures. The inviting floor plan boasts both a formal living room and dining room—perfect for entertaining—as well as a convenient downstairs bedroom and full bath, ideal for guests or multi-generational living.
+              </p>
+
+              <p>
+                The chef's kitchen is a showstopper, showcasing all-new cabinetry, quartz countertops, and stainless-steel appliances. A spacious family room with a cozy fireplace flows effortlessly into the dining area and out to the expansive backyard, where mountain views and ample space await for entertaining, gardening, or even adding a pool.
+              </p>
+
+              <p>
+                Upstairs, retreat to your private primary suite complete with a walk-in closet, spa-inspired bath, and a balcony offering breathtaking views—a perfect spot to enjoy your morning coffee or sunset unwind.
+              </p>
+
+              <div class="bg-gold/10 border border-gold/30 p-6 rounded-lg mt-8">
+                <h3 class="text-xl font-bold text-black mb-4 font-playfair">Additional Highlights:</h3>
+                <ul class="space-y-2 text-black">
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-gold rotate-45 mt-3 mr-3 flex-shrink-0"></div>
+                    <span>Attached two-car garage</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-gold rotate-45 mt-3 mr-3 flex-shrink-0"></div>
+                    <span>Central heating and air conditioning</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-gold rotate-45 mt-3 mr-3 flex-shrink-0"></div>
+                    <span>A highly functional, desirable floor plan</span>
+                  </li>
+                </ul>
+              </div>
+
+              <p>
+                All of this is nestled in a peaceful neighborhood with easy access to shopping, dining, parks, and freeways. Move-in ready and beautifully designed, this Highland gem combines style, comfort, and convenience in one incredible package.
+              </p>
+
+            </div> <!-- /copy -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== GALLERY (Section 3 — its OWN bg) ======================== -->
+    <section class="bg-navy py-20">
+      <div class="w-full">
+        <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+          <!-- Header -->
+          <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gold mb-6 font-playfair">Property Gallery</h2>
+            <p class="text-offwhite text-lg leading-relaxed max-w-2xl mx-auto">
+              Explore every detail of this beautiful Highland home through our comprehensive photo gallery.
+            </p>
+          </div>
+
+          <!-- Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {propertyImages.map((image, index) => (
+              <article class="property-image-card relative p-8 group cursor-pointer" data-image-index={index}>
+                <!-- Luxury frame -->
+                <div class="absolute inset-4 border border-gold/20 pointer-events-none transition-all duration-500 group-hover:border-gold/50"></div>
+                <div class="absolute inset-6 border border-gold/10 pointer-events-none transition-all duration-500 group-hover:border-gold/30"></div>
+
+                <div class="relative aspect-square overflow-hidden shadow-2xl transition-all duration-500 group-hover:shadow-gold/10">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  <!-- Counter -->
+                  <div class="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div class="relative">
+                      <div class="absolute inset-0 bg-gold/20 blur-sm"></div>
+                      <span class="relative px-3 py-1 bg-black/80 backdrop-blur-sm text-gold text-xs font-bold tracking-widest uppercase border border-gold/30">
+                        {index + 1} of {propertyImages.length}
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Zoom -->
+                  <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div class="w-10 h-10 bg-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-gold/30">
+                      <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================== CONTACT (Section 4 — its OWN bg) ======================== -->
+    <section class="py-20 bg-white">
+      <div class="w-full">
+       
+ <!-- Section Header -->
+          <div class="text-center py-12 md:py-16 lg:py-20">
+          <p class="text-gold text-xs sm:text-sm font-medium tracking-[0.3em] uppercase mb-4 sm:mb-6 font-poppins" itemprop="name">
+            Interested in this Property?
+          </p>
+
+          <div class="relative">
+            <h2 id="about-heading" class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6 md:mb-8 font-playfair leading-tight">
+              Take a Tour
+            </h2>
+
+            <div class="flex items-center justify-center space-x-4 mb-6 sm:mb-8">
+              <div class="w-12 sm:w-16 h-px bg-gradient-to-r from-transparent to-gold"></div>
+              <div class="w-2 h-2 bg-gold rotate-45"></div>
+              <div class="w-6 sm:w-8 h-px bg-gold"></div>
+              <div class="w-2 h-2 bg-gold rotate-45"></div>
+              <div class="w-12 sm:w-16 h-px bg-gradient-to-l from-transparent to-gold"></div>
+            </div>
+          </div>
+                
+          <p class="text-black text-lg mb-8 max-w-2xl mx-auto">
+            Contact Christian Fuentes today to schedule a private viewing or get more information about this beautiful Highland home.
+          </p>
+             <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a href="/consultation" class="btn-primary-yellow" aria-label="Schedule viewing for Highland home">
+                  <span>Schedule Private Viewing</span>
+                </a>
+                <a href="tel:909-438-2245" class="btn-hero-special-black" aria-label="Call Christian Fuentes about this property">
+                  <span>Call (909) 438-2245</span>
+                </a>
+              </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+
+  <!-- ======================== LIGHTBOX MODAL ======================== -->
+  <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden items-center justify-center">
+    <div class="relative max-w-7xl max-h-full p-4">
+      <!-- Close -->
+      <button id="closeLightbox" class="absolute top-4 right-4 z-10 w-12 h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <!-- Arrows -->
+      <button id="prevImage" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <button id="nextImage" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-300">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+
+      <!-- Image -->
+      <div class="flex items-center justify-center h-full">
+        <img id="lightboxImage" src="" alt="" class="max-w-full max-h-full object-contain" />
+      </div>
+
+      <!-- Counter -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm">
+        <span id="imageCounter">1 of {propertyImages.length}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== SCRIPTS ======================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get gallery images from global variable
+      const images = window.propertyImages || [];
+      
+      if (images.length === 0) {
+        console.warn('Property images not loaded properly');
+        return;
+      }
+
+      let currentImageIndex = 0;
+
+      // Get DOM elements
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const imageCounter = document.getElementById('imageCounter');
+      const closeLightbox = document.getElementById('closeLightbox');
+      const prevImage = document.getElementById('prevImage');
+      const nextImage = document.getElementById('nextImage');
+
+      // Check if all elements exist
+      if (!lightbox || !lightboxImage || !imageCounter || !closeLightbox || !prevImage || !nextImage) {
+        console.error('Lightbox elements not found');
+        return;
+      }
+
+      // Add click listeners to all gallery images
+      const imageCards = document.querySelectorAll('.property-image-card');
+      console.log('Found image cards:', imageCards.length);
+      
+      imageCards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          console.log('Image card clicked, index:', index);
+          currentImageIndex = index;
+          openLightbox();
+        });
+      });
+
+      function openLightbox() {
+        const image = images[currentImageIndex];
+        if (!image) {
+          console.error('Image not found at index:', currentImageIndex);
+          return;
+        }
+        
+        console.log('Opening lightbox with image:', image.src);
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        imageCounter.textContent = `${currentImageIndex + 1} of ${images.length}`;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightboxFunction() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = 'unset';
+      }
+
+      function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        openLightbox();
+      }
+
+      function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        openLightbox();
+      }
+
+      // Event listeners
+      closeLightbox.addEventListener('click', closeLightboxFunction);
+      prevImage.addEventListener('click', showPrevImage);
+      nextImage.addEventListener('click', showNextImage);
+
+      // Click outside to close
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightboxFunction();
+        }
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('hidden')) return;
+        
+        if (e.key === 'Escape') {
+          closeLightboxFunction();
+        } else if (e.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (e.key === 'ArrowRight') {
+          showNextImage();
+        }
+      });
+
+      console.log('Lightbox initialized successfully');
+    });
+  </script>
+</body>
+</html>

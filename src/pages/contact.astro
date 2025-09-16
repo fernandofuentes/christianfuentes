@@ -1,0 +1,155 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.tsx';
+import ContactHero from '../components/ContactHero.astro';
+import ContactInfo from '../components/ContactInfo.astro';
+import ContactForm from '../components/ContactForm.astro';
+import GlobalCTA from '../components/GlobalCTA.astro';
+import InstagramFeed from '../components/InstagramFeed.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Contact Christian Fuentes - #1 Chino Hills Realtor | RE/MAX Top Producers";
+const description = "Contact Christian Fuentes Group for all your real estate needs. Visit our Diamond Bar office at 618 N. Diamond Bar Blvd or call (909) 438-2245. Serving Chino Hills and surrounding areas.";
+const canonicalURL = "https://christianfuentes.com/contact";
+const ogImage = "https://christianfuentes.com/contact-og-image.jpg";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title}>
+    <meta name="description" content={description}>
+    <meta name="keywords" content="contact Christian Fuentes, Diamond Bar real estate office, Chino Hills realtor contact, RE/MAX Top Producers, real estate agent contact">
+    <meta name="author" content="Christian Fuentes">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href={canonicalURL}>
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="Diamond Bar, California">
+    <meta name="geo.position" content="34.0286;-117.8103">
+    <meta name="ICBM" content="34.0286, -117.8103">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content={canonicalURL}>
+    <meta property="og:title" content={title}>
+    <meta property="og:description" content={description}>
+    <meta property="og:image" content={ogImage}>
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Christian Fuentes Group">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content={canonicalURL}>
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:description" content={description}>
+    <meta property="twitter:image" content={ogImage}>
+    <meta name="twitter:creator" content="@christianfuentes">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Christian Fuentes",
+      "image": "https://christianfuentes.com/christian-fuentes-photo.jpg",
+      "telephone": "+1-909-438-2245",
+      "email": "christian@christianfuentes.com",
+      "url": "https://christianfuentes.com/contact",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "618 N. Diamond Bar Blvd",
+        "addressLocality": "Diamond Bar",
+        "addressRegion": "CA",
+        "postalCode": "91765",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.0286",
+        "longitude": "-117.8103"
+      },
+      "worksFor": {
+        "@type": "RealEstateAgency",
+        "name": "RE/MAX Top Producers",
+        "url": "https://remax.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "618 N. Diamond Bar Blvd",
+          "addressLocality": "Diamond Bar",
+          "addressRegion": "CA",
+          "postalCode": "91765",
+          "addressCountry": "US"
+        }
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Chino Hills",
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City",
+          "name": "Diamond Bar",
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City", 
+          "name": "Beverly Hills",
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City",
+          "name": "Manhattan Beach", 
+          "addressRegion": "CA"
+        },
+        {
+          "@type": "City",
+          "name": "Malibu",
+          "addressRegion": "CA"
+        }
+      ],
+      "hasCredential": "RE/MAX Diamond Producer",
+      "knowsAbout": ["Luxury Real Estate", "Residential Sales", "Property Investment"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "127"
+      },
+      "openingHours": "Mo-Su 07:00-21:00"
+    }
+    </script>
+</head>
+<body class="bg-navy text-white" itemscope itemtype="https://schema.org/WebPage">
+    <header>
+        <Navigation client:load />
+    </header>
+    <main>
+        <ContactHero />
+        <ContactInfo />
+        <GlobalCTA />
+        <InstagramFeed />
+        <Footer />
+    </main>
+</body>
+</html>
