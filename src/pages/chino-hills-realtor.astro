@@ -1,235 +1,258 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/Navigation.tsx';
-import ChinoHillsHero from '../components/ChinoHillsHero.astro';
-import ChinoHillsNeighborhoods from '../components/ChinoHillsNeighborhoods.astro';
-import ChinoHillsMarketStats from '../components/ChinoHillsMarketStats.astro';
-import ChinoHillsTestimonials from '../components/ChinoHillsTestimonials.astro';
-import GlobalCTA from '../components/GlobalCTA.astro';
-import InstagramFeed from '../components/InstagramFeed.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Navigation from "../components/Navigation";
+import ChinoHillsHero from "../components/ChinoHillsHero.astro";
+import ChinoHillsNeighborhoods from "../components/ChinoHillsNeighborhoods.astro";
+import ChinoHillsMarketStats from "../components/ChinoHillsMarketStats.astro";
+import ChinoHillsTestimonials from "../components/ChinoHillsTestimonials.astro";
+import GlobalCTA from "../components/GlobalCTA.astro";
+import InstagramFeed from "../components/InstagramFeed.astro";
+import Footer from "../components/Footer.astro";
 
-const title = "Christian Fuentes - #1 Chino Hills Realtor | Top Real Estate Agent CA | RE/MAX";
-const description = "Christian Fuentes - Premier Chino Hills realtor with 20+ years experience. Expert in luxury homes, first-time buyers, and investment properties. Call (909) 438-2245 for your FREE consultation!";
+const title =
+    "Christian Fuentes - #1 Chino Hills Realtor | Top Real Estate Agent CA | RE/MAX";
+const description =
+    "Christian Fuentes - Premier Chino Hills realtor with 20+ years experience. Expert in luxury homes, first-time buyers, and investment properties. Call (909) 438-2245 for your FREE consultation!";
 const canonicalURL = "https://christianfuentes.com/chino-hills-realtor";
 const ogImage = "https://christianfuentes.com/chino-hills-realtor-og.jpg";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title}>
-    <meta name="description" content={description}>
-    <meta name="keywords" content="Chino Hills realtor, Chino Hills real estate agent, homes for sale Chino Hills CA, luxury homes Chino Hills, Christian Fuentes realtor, RE/MAX Chino Hills, best realtor Chino Hills, Chino Hills property expert">
-    <meta name="author" content="Christian Fuentes">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href={canonicalURL}>
-    
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="US-CA">
-    <meta name="geo.placename" content="Chino Hills, California">
-    <meta name="geo.position" content="33.9898;-117.7326">
-    <meta name="ICBM" content="33.9898, -117.7326">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={canonicalURL}>
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:image" content={ogImage}>
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Christian Fuentes Group">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content={canonicalURL}>
-    <meta property="twitter:title" content={title}>
-    <meta property="twitter:description" content={description}>
-    <meta property="twitter:image" content={ogImage}>
-    <meta name="twitter:creator" content="@christianfuentes">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.pexels.com">
-    
-    <!-- Enhanced Local Business Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateAgent",
-      "name": "Christian Fuentes",
-      "alternateName": "Christian Fuentes Realtor",
-      "description": "Premier Chino Hills realtor specializing in luxury homes, residential sales, and investment properties with over 20 years of experience.",
-      "image": "https://christianfuentes.com/christian-fuentes-photo.jpg",
-      "logo": "https://christianfuentes.com/christian-fuentes-logo.jpg",
-      "telephone": "+1-909-438-2245",
-      "email": "christian@christianfuentes.com",
-      "url": "https://christianfuentes.com/chino-hills-realtor",
-      "sameAs": [
-        "https://www.instagram.com/christianfuentesrtp/reels/",
-        "https://www.facebook.com/christianfuentesrealtor",
-        "https://www.linkedin.com/in/christianfuentes"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "618 N. Diamond Bar Blvd",
-        "addressLocality": "Diamond Bar",
-        "addressRegion": "CA",
-        "postalCode": "91765",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "34.0286",
-        "longitude": "-117.8103"
-      },
-      "worksFor": {
-        "@type": "RealEstateAgency",
-        "name": "RE/MAX Top Producers",
-        "url": "https://remax.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "618 N. Diamond Bar Blvd",
-          "addressLocality": "Diamond Bar",
-          "addressRegion": "CA",
-          "postalCode": "91765",
-          "addressCountry": "US"
-        }
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Chino Hills",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "City",
-          "name": "Diamond Bar",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "City", 
-          "name": "Beverly Hills",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "City",
-          "name": "Manhattan Beach", 
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "City",
-          "name": "Malibu",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        },
-        {
-          "@type": "City",
-          "name": "Chino",
-          "addressRegion": "CA",
-          "addressCountry": "US"
-        }
-      ],
-      "hasCredential": [
-        "RE/MAX Diamond Producer",
-        "CalBRE License #01262973"
-      ],
-      "knowsAbout": [
-        "Luxury Real Estate",
-        "Residential Sales", 
-        "Property Investment",
-        "First Time Home Buyers",
-        "Property Flipping",
-        "Market Analysis"
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "127",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "priceRange": "$$$$",
-      "paymentAccepted": "Cash, Check, Credit Card",
-      "currenciesAccepted": "USD",
-      "openingHours": "Mo-Su 07:00-21:00",
-      "serviceArea": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": "33.9898",
-          "longitude": "-117.7326"
-        },
-        "geoRadius": "50000"
-      }
-    }
-    </script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Why choose Christian Fuentes as your Chino Hills realtor?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Christian Fuentes has over 20 years of experience as a Chino Hills realtor, with 500+ homes sold and $2B+ in total sales. He's a RE/MAX Diamond Producer and Top 10 team leader in California/Hawaii, specializing in luxury homes and investment properties."
-          }
-        },
-        {
-          "@type": "Question", 
-          "name": "What areas does Christian Fuentes serve as a realtor?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Christian Fuentes serves Chino Hills, Diamond Bar, and surrounding areas. His main office is located at 618 N. Diamond Bar Blvd, Diamond Bar, CA 91765."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How can I contact Christian Fuentes for real estate services in Chino Hills?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can contact Christian Fuentes at (909) 438-2245 or email christian@christianfuentes.com. He offers free consultations for both buyers and sellers in the Chino Hills area."
-          }
-        }
-      ]
-    }
-    </script>
-</head>
-<body class="bg-black text-white" itemscope itemtype="https://schema.org/WebPage">
-    <header>
-        <Navigation client:load />
-    </header>
-    <main>
-        <ChinoHillsHero />
-        <ChinoHillsNeighborhoods />
-        <ChinoHillsMarketStats />
-        <ChinoHillsTestimonials />
-        <GlobalCTA />
-<InstagramFeed />
-        <Footer />
-    </main>
-</body>
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta
+            name="keywords"
+            content="Chino Hills realtor, Chino Hills real estate agent, homes for sale Chino Hills CA, luxury homes Chino Hills, Christian Fuentes realtor, RE/MAX Chino Hills, best realtor Chino Hills, Chino Hills property expert"
+        />
+        <meta name="author" content="Christian Fuentes" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="US-CA" />
+        <meta name="geo.placename" content="Chino Hills, California" />
+        <meta name="geo.position" content="33.9898;-117.7326" />
+        <meta name="ICBM" content="33.9898, -117.7326" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Christian Fuentes Group" />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={ogImage} />
+        <meta name="twitter:creator" content="@christianfuentes" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://images.pexels.com" />
+
+        <!-- Enhanced Local Business Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "RealEstateAgent",
+                "name": "Christian Fuentes",
+                "alternateName": "Christian Fuentes Realtor",
+                "description": "Premier Chino Hills realtor specializing in luxury homes, residential sales, and investment properties with over 20 years of experience.",
+                "image": "https://christianfuentes.com/christian-fuentes-photo.jpg",
+                "logo": "https://christianfuentes.com/christian-fuentes-logo.jpg",
+                "telephone": "+1-909-438-2245",
+                "email": "christian@christianfuentes.com",
+                "url": "https://christianfuentes.com/chino-hills-realtor",
+                "sameAs": [
+                    "https://www.instagram.com/christianfuentesrtp/reels/",
+                    "https://www.facebook.com/christianfuentesrealtor",
+                    "https://www.linkedin.com/in/christianfuentes"
+                ],
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "618 N. Diamond Bar Blvd",
+                    "addressLocality": "Diamond Bar",
+                    "addressRegion": "CA",
+                    "postalCode": "91765",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "34.0286",
+                    "longitude": "-117.8103"
+                },
+                "worksFor": {
+                    "@type": "RealEstateAgency",
+                    "name": "RE/MAX Top Producers",
+                    "url": "https://remax.com",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "618 N. Diamond Bar Blvd",
+                        "addressLocality": "Diamond Bar",
+                        "addressRegion": "CA",
+                        "postalCode": "91765",
+                        "addressCountry": "US"
+                    }
+                },
+                "areaServed": [
+                    {
+                        "@type": "City",
+                        "name": "Chino Hills",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Diamond Bar",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Beverly Hills",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Manhattan Beach",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Malibu",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Chino",
+                        "addressRegion": "CA",
+                        "addressCountry": "US"
+                    }
+                ],
+                "hasCredential": [
+                    "RE/MAX Diamond Producer",
+                    "CalBRE License #01262973"
+                ],
+                "knowsAbout": [
+                    "Luxury Real Estate",
+                    "Residential Sales",
+                    "Property Investment",
+                    "First Time Home Buyers",
+                    "Property Flipping",
+                    "Market Analysis"
+                ],
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "5.0",
+                    "reviewCount": "127",
+                    "bestRating": "5",
+                    "worstRating": "1"
+                },
+                "priceRange": "$$$$",
+                "paymentAccepted": "Cash, Check, Credit Card",
+                "currenciesAccepted": "USD",
+                "openingHours": "Mo-Su 07:00-21:00",
+                "serviceArea": {
+                    "@type": "GeoCircle",
+                    "geoMidpoint": {
+                        "@type": "GeoCoordinates",
+                        "latitude": "33.9898",
+                        "longitude": "-117.7326"
+                    },
+                    "geoRadius": "50000"
+                }
+            }
+        </script>
+
+        <!-- FAQ Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "Why choose Christian Fuentes as your Chino Hills realtor?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Christian Fuentes has over 20 years of experience as a Chino Hills realtor, with 500+ homes sold and $2B+ in total sales. He's a RE/MAX Diamond Producer and Top 10 team leader in California/Hawaii, specializing in luxury homes and investment properties."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What areas does Christian Fuentes serve as a realtor?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Christian Fuentes serves Chino Hills, Diamond Bar, and surrounding areas. His main office is located at 618 N. Diamond Bar Blvd, Diamond Bar, CA 91765."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How can I contact Christian Fuentes for real estate services in Chino Hills?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "You can contact Christian Fuentes at (909) 438-2245 or email christian@christianfuentes.com. He offers free consultations for both buyers and sellers in the Chino Hills area."
+                        }
+                    }
+                ]
+            }
+        </script>
+    </head>
+    <body
+        class="bg-black text-white"
+        itemscope
+        itemtype="https://schema.org/WebPage"
+    >
+        <header>
+            <Navigation client:load />
+        </header>
+        <main>
+            <ChinoHillsHero />
+            <ChinoHillsNeighborhoods />
+            <ChinoHillsMarketStats />
+            <ChinoHillsTestimonials />
+            <GlobalCTA />
+            <InstagramFeed />
+            <Footer />
+        </main>
+    </body>
 </html>

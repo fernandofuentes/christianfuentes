@@ -1,119 +1,142 @@
 ---
-import '../styles/global.css';
-import Navigation from '../components/Navigation.tsx';
-import ConsultationHero from '../components/ConsultationHero.astro';
-import ConsultationForm from '../components/ConsultationForm.astro';
-import ConsultationBenefits from '../components/ConsultationBenefits.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Navigation from "../components/Navigation";
+import ConsultationHero from "../components/ConsultationHero.astro";
+import ConsultationForm from "../components/ConsultationForm.astro";
+import ConsultationBenefits from "../components/ConsultationBenefits.astro";
+import Footer from "../components/Footer.astro";
 
-const title = "Schedule Free Consultation - Christian Fuentes | #1 Chino Hills Realtor | RE/MAX";
-const description = "Schedule your FREE real estate consultation with Christian Fuentes. Expert advice for buying, selling, or investing in Chino Hills, Diamond Bar, and surrounding areas. Call (909) 438-2245.";
+const title =
+    "Schedule Free Consultation - Christian Fuentes | #1 Chino Hills Realtor | RE/MAX";
+const description =
+    "Schedule your FREE real estate consultation with Christian Fuentes. Expert advice for buying, selling, or investing in Chino Hills, Diamond Bar, and surrounding areas. Call (909) 438-2245.";
 const canonicalURL = "https://christianfuentes.com/consultation";
 const ogImage = "https://christianfuentes.com/consultation-og-image.jpg";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Primary Meta Tags -->
-    <title>{title}</title>
-    <meta name="title" content={title}>
-    <meta name="description" content={description}>
-    <meta name="keywords" content="free real estate consultation, Chino Hills realtor consultation, Christian Fuentes consultation, real estate advice, home buying consultation, home selling consultation, investment property consultation">
-    <meta name="author" content="Christian Fuentes">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href={canonicalURL}>
-    
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="US-CA">
-    <meta name="geo.placename" content="Chino Hills, California">
-    <meta name="geo.position" content="33.9898;-117.7326">
-    <meta name="ICBM" content="33.9898, -117.7326">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content={canonicalURL}>
-    <meta property="og:title" content={title}>
-    <meta property="og:description" content={description}>
-    <meta property="og:image" content={ogImage}>
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:site_name" content="Christian Fuentes Group">
-    <meta property="og:locale" content="en_US">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content={canonicalURL}>
-    <meta property="twitter:title" content={title}>
-    <meta property="twitter:description" content={description}>
-    <meta property="twitter:image" content={ogImage}>
-    <meta name="twitter:creator" content="@christianfuentes">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://images.pexels.com">
-    
-    <!-- Service Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Free Real Estate Consultation",
-      "description": "Complimentary real estate consultation with Christian Fuentes covering buying, selling, and investment strategies in Chino Hills and surrounding areas.",
-      "provider": {
-        "@type": "RealEstateAgent",
-        "name": "Christian Fuentes",
-        "telephone": "+1-909-438-2245",
-        "email": "christian@christianfuentes.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "618 N. Diamond Bar Blvd",
-          "addressLocality": "Diamond Bar",
-          "addressRegion": "CA",
-          "postalCode": "91765",
-          "addressCountry": "US"
-        }
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Chino Hills",
-          "addressRegion": "CA"
-        },
-        {
-          "@type": "City",
-          "name": "Diamond Bar",
-          "addressRegion": "CA"
-        }
-      ],
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free consultation with no obligation"
-      }
-    }
-    </script>
-</head>
-<body class="bg-black text-white" itemscope itemtype="https://schema.org/WebPage">
-    <header>
-        <Navigation client:load />
-    </header>
-    <main>
-        <ConsultationHero />
-        <ConsultationForm />
-        <Footer />
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary Meta Tags -->
+        <title>{title}</title>
+        <meta name="title" content={title} />
+        <meta name="description" content={description} />
+        <meta
+            name="keywords"
+            content="free real estate consultation, Chino Hills realtor consultation, Christian Fuentes consultation, real estate advice, home buying consultation, home selling consultation, investment property consultation"
+        />
+        <meta name="author" content="Christian Fuentes" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="US-CA" />
+        <meta name="geo.placename" content="Chino Hills, California" />
+        <meta name="geo.position" content="33.9898;-117.7326" />
+        <meta name="ICBM" content="33.9898, -117.7326" />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="Christian Fuentes Group" />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={ogImage} />
+        <meta name="twitter:creator" content="@christianfuentes" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://images.pexels.com" />
+
+        <!-- Service Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Service",
+                "name": "Free Real Estate Consultation",
+                "description": "Complimentary real estate consultation with Christian Fuentes covering buying, selling, and investment strategies in Chino Hills and surrounding areas.",
+                "provider": {
+                    "@type": "RealEstateAgent",
+                    "name": "Christian Fuentes",
+                    "telephone": "+1-909-438-2245",
+                    "email": "christian@christianfuentes.com",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "streetAddress": "618 N. Diamond Bar Blvd",
+                        "addressLocality": "Diamond Bar",
+                        "addressRegion": "CA",
+                        "postalCode": "91765",
+                        "addressCountry": "US"
+                    }
+                },
+                "areaServed": [
+                    {
+                        "@type": "City",
+                        "name": "Chino Hills",
+                        "addressRegion": "CA"
+                    },
+                    {
+                        "@type": "City",
+                        "name": "Diamond Bar",
+                        "addressRegion": "CA"
+                    }
+                ],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "description": "Free consultation with no obligation"
+                }
+            }
+        </script>
+    </head>
+    <body
+        class="bg-black text-white"
+        itemscope
+        itemtype="https://schema.org/WebPage"
+    >
+        <header>
+            <Navigation client:load />
+        </header>
+        <main>
+            <ConsultationHero />
+            <ConsultationForm />
+            <Footer />
+        </main>
+    </body>
 </html>
