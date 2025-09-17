@@ -393,102 +393,98 @@ const propertyImages = [
 
   <!-- ======================== SCRIPTS ======================== -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Get gallery images from global variable
-      const images = window.propertyImages || [];
-      
-      if (images.length === 0) {
-        console.warn('Property images not loaded properly');
-        return;
-      }
+  // Local type for your gallery items (so TS knows about .src/.alt)
+  type GalleryImage = { src: string; alt?: string };
 
-      let currentImageIndex = 0;
+  document.addEventListener('DOMContentLoaded', () => {
+    // ✅ Read the global safely & typed
+    const images: GalleryImage[] =
+      (window as unknown as { propertyImages?: GalleryImage[] }).propertyImages ?? [];
 
-      // Get DOM elements
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightboxImage');
-      const imageCounter = document.getElementById('imageCounter');
-      const closeLightbox = document.getElementById('closeLightbox');
-      const prevImage = document.getElementById('prevImage');
-      const nextImage = document.getElementById('nextImage');
+    if (images.length === 0) {
+      console.warn('Property images not loaded properly');
+      return;
+    }
 
-      // Check if all elements exist
-      if (!lightbox || !lightboxImage || !imageCounter || !closeLightbox || !prevImage || !nextImage) {
-        console.error('Lightbox elements not found');
-        return;
-      }
+    let currentImageIndex = 0;
 
-      // Add click listeners to all gallery images
-      const imageCards = document.querySelectorAll('.property-image-card');
-      console.log('Found image cards:', imageCards.length);
-      
-      imageCards.forEach((card, index) => {
-        card.addEventListener('click', () => {
-          console.log('Image card clicked, index:', index);
-          currentImageIndex = index;
-          openLightbox();
-        });
-      });
+    // ✅ Type DOM nodes so TS allows .src/.alt/.classList etc.
+    const lightbox = document.getElementById('lightbox') as HTMLElement | null;
+    const lightboxImage = document.getElementById('lightboxImage') as HTMLImageElement | null;
+    const imageCounter = document.getElementById('imageCounter') as HTMLElement | null;
+    const closeLightbox = document.getElementById('closeLightbox') as HTMLElement | null;
+    const prevImage = document.getElementById('prevImage') as HTMLElement | null;
+    const nextImage = document.getElementById('nextImage') as HTMLElement | null;
 
-      function openLightbox() {
-        const image = images[currentImageIndex];
-        if (!image) {
-          console.error('Image not found at index:', currentImageIndex);
-          return;
-        }
-        
-        console.log('Opening lightbox with image:', image.src);
-        lightboxImage.src = image.src;
-        lightboxImage.alt = image.alt;
-        imageCounter.textContent = `${currentImageIndex + 1} of ${images.length}`;
-        lightbox.classList.remove('hidden');
-        lightbox.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      }
+    if (!lightbox || !lightboxImage || !imageCounter || !closeLightbox || !prevImage || !nextImage) {
+      console.error('Lightbox elements not found');
+      return;
+    }
 
-      function closeLightboxFunction() {
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = 'unset';
-      }
+    const imageCards = document.querySelectorAll<HTMLElement>('.property-image-card');
+    console.log('Found image cards:', imageCards.length);
 
-      function showPrevImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    imageCards.forEach((card, index) => {
+      card.addEventListener('click', () => {
+        console.log('Image card clicked, index:', index);
+        currentImageIndex = index;
         openLightbox();
-      }
-
-      function showNextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        openLightbox();
-      }
-
-      // Event listeners
-      closeLightbox.addEventListener('click', closeLightboxFunction);
-      prevImage.addEventListener('click', showPrevImage);
-      nextImage.addEventListener('click', showNextImage);
-
-      // Click outside to close
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-          closeLightboxFunction();
-        }
       });
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (lightbox.classList.contains('hidden')) return;
-        
-        if (e.key === 'Escape') {
-          closeLightboxFunction();
-        } else if (e.key === 'ArrowLeft') {
-          showPrevImage();
-        } else if (e.key === 'ArrowRight') {
-          showNextImage();
-        }
-      });
-
-      console.log('Lightbox initialized successfully');
     });
-  </script>
+
+    function openLightbox() {
+      const image = images[currentImageIndex];
+      if (!image) {
+        console.error('Image not found at index:', currentImageIndex);
+        return;
+      }
+
+      console.log('Opening lightbox with image:', image.src);
+      lightboxImage.src = image.src;           // ✅ OK: HTMLImageElement
+      lightboxImage.alt = image.alt ?? '';     // ✅ OK: optional alt
+      imageCounter.textContent = `${currentImageIndex + 1} of ${images.length}`;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightboxFunction() {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = 'unset';
+    }
+
+    function showPrevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      openLightbox();
+    }
+
+    function showNextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      openLightbox();
+    }
+
+    // Events
+    closeLightbox.addEventListener('click', closeLightboxFunction);
+    prevImage.addEventListener('click', showPrevImage);
+    nextImage.addEventListener('click', showNextImage);
+
+    // Click outside to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightboxFunction();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLightboxFunction();
+      else if (e.key === 'ArrowLeft') showPrevImage();
+      else if (e.key === 'ArrowRight') showNextImage();
+    });
+
+    console.log('Lightbox initialized successfully');
+  });
+</script>
+
 </body>
 </html>
